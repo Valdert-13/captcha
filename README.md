@@ -1,1 +1,2 @@
-# captcha
+# Captcha recognizer
+

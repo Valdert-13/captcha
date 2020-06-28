@@ -17,4 +17,3 @@ def test_var():
     assert len(ALL_CHARS) > 0,  'the test failed, "ALL_CHARS" must be greater than 0'
 
     assert type(MODEL_TRAINING) is bool
-

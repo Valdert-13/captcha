@@ -1,7 +1,7 @@
 from config import *
 from captcha_generator import  Captcha
 from model import training_model
-from  test import test_data
+from test_model import test_data
 import tensorflow as tf
 import os
 

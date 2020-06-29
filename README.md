@@ -41,7 +41,7 @@ I build the network with [TensorFlow](https://github.com/tensorflow/tensorflow),
 ```
 
 # The training result    
-I use 50 000 training samples and 2 000 test samples. After 40 epochs of training, the model obtains the correct rate of 64-67% on the test data.  
+I use 100 000 training samples and 5 000 test samples. After 150 epochs of training, the model obtains the correct rate of 73.62% on the test data.  
 
 
 ![1RF0L](https://github.com/Valdert-13/captcha/blob/master/picture/1RF0L_0_.jpg)    

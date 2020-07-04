@@ -14,15 +14,15 @@ ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'
             #, \
             #'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q' ,'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-COUNT_IMG_TRAIN = 50000 # number of images for tain
-COUNT_IMG_TEST = 2000 # number of images for test
+COUNT_IMG_TRAIN = 200000 # number of images for tain
+COUNT_IMG_TEST = 5000 # number of images for test
 
 ALL_CHARS = NUMBER + ALPHABET
 ALL_CHARS_LEN = len(ALL_CHARS)
 
 NUM_CODE_CHARACTERS = 5
 
-EPOCHS = 40
-BATCH_SIZE = 32
+EPOCHS = 200
+BATCH_SIZE = 256
 
 IMG_SHAPE = (60, 160, 3)

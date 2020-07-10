@@ -14,7 +14,7 @@ class Dataset():
         len_img_list = len(img_list)
 
         X = np.zeros((len_img_list, *IMG_SHAPE))
-        Y = np.zeros((len_img_list , NUM_CODE_CHARACTERS, ALL_CHARS_LEN)) # пределать идет опшибка корекции
+        Y = np.zeros((len_img_list , NUM_CODE_CHARACTERS, ALL_CHARS_LEN))
 
         for i, img_name in enumerate(img_list):
 

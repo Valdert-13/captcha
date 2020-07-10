@@ -37,6 +37,6 @@ def training_model (EPOCHS=EPOCHS, BATCH_SIZE=BATCH_SIZE ):
     model = create_model()
     image, label  = get_train_data_loader()
     model.fit(image, [label[:, i] for i in range(NUM_CODE_CHARACTERS)], epochs=EPOCHS, batch_size=BATCH_SIZE, verbose=1, validation_split=0.2)
-    model.save('captcha_model.h5')
+    model.save(f'{CAPTСHA}_captcha_model.h5')
     return model
 

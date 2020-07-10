@@ -14,7 +14,7 @@ Tesseract OCR and OpenCV use the second method. But the captcha is more and more
 Acquire massive capthca by hunman is unrealistic. Fortunately, we can easily generate the captcha by the python package **captcha**.See the [captcha_generator.py](https://github.com/Valdert-13/captcha/blob/master/captcha_generator.py) in details.
 
 # Build the cnn model
-I build the network with [TensorFlow](https://github.com/tensorflow/tensorflow), using the theano backend.
+I build the network with [TensorFlow](https://github.com/tensorflow/tensorflow).
 ```python
 # 3 conv layer
     input_img = tf.keras.layers.Input(shape=IMG_SHAPE)

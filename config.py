@@ -7,6 +7,7 @@ DATA_PATH = 'G:/data/captcha/'
 
 if CAPTСHA == 'rosreestr':
     DATA_PATH = os.path.join(DATA_PATH, 'rosreestr/')
+    download_path = os.path.join(DATA_PATH, 'download/')
     NUMBER = [ '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ALPHABET = []
     IMG_SHAPE = (50, 180, 3)
@@ -24,7 +25,7 @@ elif CAPTСHA == 'python':
 DATA_PATH_TRAIN = os.path.join(DATA_PATH, 'train/')
 DATASET_PATH_TEST = os.path.join(DATA_PATH, 'test/')
 
-MODEL_TRAINING = True # start model training
+MODEL_TRAINING = False # start model training
 
 
 ALL_CHARS = NUMBER + ALPHABET

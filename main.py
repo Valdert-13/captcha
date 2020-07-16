@@ -1,41 +1,16 @@
 from config import *
-from captcha_generator import Captcha
 from model import training_model
+from functions import chec_dir, count_img
 from test_model import test_data
 import tensorflow as tf
 import os
-
-
-def chec_dir(path):
-    'Проверка существоваяния директории'
-    try:
-        if not os.path.isdir(path):
-            os.mkdir(path)
-            print("Created the directory %s " % path)
-    except OSError:
-        print ("Creation of the directory %s failed" % path)
-
-
-def count_img (path, count_img):
-    'Подсчет разности требуемых и количества изображения в папке'
-    count  = count_img - len(os.listdir(path))
-    if count > 0:
-        if CAPTСHA == 'python':
-            Captcha(path, count)
-
-        elif CAPTСHA == 'rosreestr':
-            print('Запустите модуль rosreestr.py переименуте капxу (пример: 12345_09_.jpg) согласно изображению на картике или скачайте по ссылке')
-            exit()
-
-
-
 
 if __name__ == "__main__":
     if not os.path.isdir(DATA_PATH):
         print ('Пожалуйста укажите сущетсвующий путь. Config.py DATA_PATH = ')
         exit()
 
-    assert CAPTСHA in list_captcha, 'Пожалуйста укажите наименование капчи принадлежащего списку list_captcha в config.py'
+    assert CAPTСHA in list_captcha, 'Пожалуйста укажите наименование каптчи принадлежащего списку list_captcha в config.py'
 
 
     chec_dir(DATASET_PATH_TEST)

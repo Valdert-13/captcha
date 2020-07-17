@@ -10,9 +10,6 @@ def download_cuptcha_rosreestr(path, count):
     driver = webdriver.Firefox(executable_path=r'C:\Users\LSK-17\Desktop\geckodriver-v0.26.0-win64\geckodriver.exe')
     driver.get("https://rosreestr.ru/wps/portal/online_request")
 
-    count = 3
-
-
     for _ in range (count):
         scr = time.time()
         with open(download_path + f'filename_{scr}.png', 'wb') as file:

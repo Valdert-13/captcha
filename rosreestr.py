@@ -51,8 +51,8 @@ def rename_captcha (DATASET_PATH_TEST=DATASET_PATH_TEST):
         newFilename = response["Answer"]
 
         if event == "Delete":
-            for i in list_name: os.remove(i)
-            index -= 1
+            os.remove(download_path+list_name[index])
+            index += 1
 
 
         elif event == "Rename" and newFilename != "":

@@ -1,10 +1,10 @@
 from config import *
-from rosreestr import download_cuptcha_rosreestr, rename_captcha
-from captcha_generator import Captcha
+from src.rosreestr import download_cuptcha_rosreestr, rename_captcha
+from src.captcha_generator import Captcha
 import shutil
 
 
-def chec_dir(path):
+def chec_dir(path:str):
     'Проверка существоваяния директории'
     try:
         if not os.path.isdir(path):
@@ -14,7 +14,7 @@ def chec_dir(path):
         print ("Creation of the directory %s failed" % path)
 
 
-def count_img (path, count_img):
+def count_img (path:str, count_img:int):
     'Подсчет разности требуемых и количества изображения в папке'
     count  = count_img - len(os.listdir(path))
     if count > 0:

@@ -1,0 +1,4 @@
+captcha
+Pillow
+numpy
+pytest

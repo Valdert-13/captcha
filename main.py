@@ -1,9 +1,12 @@
-from config import *
-from model import training_model
-from functions import chec_dir, count_img
-from test_model import test_data
+from model.model import Model
+from dataset.dataset import Dataset
+from model.models_nn import *
+from src.functions import chec_dir, count_img
+from model.test_model import Test_model
 import tensorflow as tf
 import os
+
+
 
 if __name__ == "__main__":
     if not os.path.isdir(DATA_PATH):
@@ -21,11 +24,38 @@ if __name__ == "__main__":
         if os.path.isfile(f'{CAPTСHA}_captcha_model.h5'):os.remove(f'{CAPTСHA}_captcha_model.h5')
         chec_dir(DATA_PATH_TRAIN)
         count_img(DATA_PATH_TRAIN, COUNT_IMG_TRAIN)
-        model = training_model(EPOCHS, BATCH_SIZE)
+
+        dict_models = {
+            'model_1': model_1(),
+            'model_2': model_2(),
+            'model_3': model_3()
+        }
+
+        train = Dataset(DATA_PATH_TRAIN)
+        test = Dataset(DATASET_PATH_TEST)
+        model = Model(train.image, train.label, epochs=EPOCHS, models=dict_models)
+        model.fit()
+        result = Test_model(model.models,test.image, test.label)
+        result.test_data()
+        n = 0
+        best_result = 0
+        for i, model in enumerate(result.models):
+            print(f'Accuracy of the model: {model["model_name"]} = {model["result"]}')
+
+            if model["result"] > best_result:
+                best_result = model["result"]
+                n = i
+
+        result.models[n].save(f'{CAPTСHA}_captcha_model.h5')
+
+
     else:
         model = tf.keras.models.load_model(f'{CAPTСHA}_captcha_model.h5')
-
-    correct, total = test_data(model)
-    print('Test Accuracy of the model on the %d test images: %f %%' % (total, 100 * correct / total))
+        dict_models = {'model': model }
+        test = Dataset(DATASET_PATH_TEST)
+        model = Model(models=dict_models)
+        result = Test_model(model.models, test.image, test.label)
+        result.test_data()
+        print(f'Accuracy of the model: {result.models[0]["model_name"]} = {result.models[0]["result"]}')
 
 

@@ -2,7 +2,7 @@ import os
 
 list_captcha = ['python', 'rosreestr']
 
-CAPTСHA = 'rosreestr' # captcha should be on the list_capcha
+CAPTСHA = 'python' # captcha should be on the list_capcha
 DATA_PATH = 'G:/data/captcha/'
 
 if CAPTСHA == 'rosreestr':
@@ -31,7 +31,7 @@ MODEL_TRAINING = False # start model training
 ALL_CHARS = NUMBER + ALPHABET
 ALL_CHARS_LEN = len(ALL_CHARS)
 
-COUNT_IMG_TRAIN = 2000 # number of images for tain
+COUNT_IMG_TRAIN = 2_000 # number of images for tain
 COUNT_IMG_TEST = int(COUNT_IMG_TRAIN * 0.1) # number of images for test
 
 

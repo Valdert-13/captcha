@@ -1,16 +1,26 @@
-import os
 import numpy as np
 from PIL import Image
 from config import *
 
 class Dataset():
+    """
+    Создание датасета
+
+    Parameters
+    ----------
+
+    data_path: str
+        директория
+
+    """
     def __init__(self, data_path):
         'Создание датасета из изображений по выбраному пути'
         self.data_path = data_path
+        self.image, self.label = self.creat_dataset()
 
 
-    def creat_dataset (self, data_path):
-        img_list = os.listdir(data_path)
+    def creat_dataset (self):
+        img_list = os.listdir(self.data_path)
         len_img_list = len(img_list)
 
         X = np.zeros((len_img_list, *IMG_SHAPE))
@@ -18,7 +28,7 @@ class Dataset():
 
         for i, img_name in enumerate(img_list):
 
-            img = Image.open(os.path.join(data_path, img_name))
+            img = Image.open(os.path.join(self.data_path, img_name))
             img = np.array(img)
             img = img / 255.0
             img = np.reshape(img, IMG_SHAPE)
@@ -33,16 +43,16 @@ class Dataset():
 
         return X, Y
 
-def get_train_data_loader():
-    "Создание тренировочного датасета"
-    ds = Dataset(DATA_PATH_TRAIN)
-    image, label = ds.creat_dataset(DATA_PATH_TRAIN)
-    return image, label
-
-def get_test_data_loader():
-    'Создание тестового датасета'
-    ds = Dataset(DATASET_PATH_TEST)
-    image, label = ds.creat_dataset(DATASET_PATH_TEST)
-    return image, label
+# def get_train_data_loader():
+#     "Создание тренировочного датасета"
+#     ds = Dataset(DATA_PATH_TRAIN)
+#     image, label = ds.creat_dataset(DATA_PATH_TRAIN)
+#     return image, label
+#
+# def get_test_data_loader():
+#     'Создание тестового датасета'
+#     ds = Dataset(DATASET_PATH_TEST)
+#     image, label = ds.creat_dataset(DATASET_PATH_TEST)
+#     return image, label
 
 

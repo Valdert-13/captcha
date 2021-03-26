@@ -46,7 +46,7 @@ if __name__ == "__main__":
                 best_result = model["result"]
                 n = i
 
-        result.models[n].save(f'{CAPTСHA}_captcha_model.h5')
+        result.models[n]['model_class'].save(f'{CAPTСHA}_captcha_model.h5')
 
 
     else:
